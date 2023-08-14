@@ -46,3 +46,30 @@
 .product--img {
   max-height: 40px;
 }
+.apexcharts-legend-text {
+  color: #bfbfbf !important;
+  padding: 0 6px;
+}
+.icon-img-1 {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #1765fd30;
+  border-radius: 12px;
+  svg{
+    width: 24px;
+    height: 24px;
+    path{
+      fill:#fff!important ;
+    }
+  }
+}
+tr {
+  height: 71px !important;
+}
+.header-area.is-sticky {
+  z-index: 999999999999;
+}

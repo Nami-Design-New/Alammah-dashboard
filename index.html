@@ -22,14 +22,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/jsvectormap.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script defer src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
 </head>
 
 <body class="body-bg-f8faff">
     <!-- Start Preloader Area -->
     <div class="preloader">
-        <img src="assets/images/logoW.svg" alt="main-logo">
+        <img src="assets/images/logo.svg" alt="main-logo">
     </div>
     <!-- End Preloader Area -->
     <!-- Start All Section Area -->
@@ -50,7 +55,7 @@
                             <!-- logo-container -->
                             <div class="main-logo">
                                 <a href="index.html">
-                                    <img src="assets/images/logoW.svg" alt="main-logo">
+                                    <img id="logo" src="assets/images/logo.svg" alt="main-logo">
                                 </a>
                             </div>
                         </div>
@@ -615,62 +620,93 @@
             <div class="features-area">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-features">
-                                <div class="row align-items-center">
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-content">
-                                            <span class="features-title">CLICK THROUGH</span>
-                                            <h3>9,670 <span>-0.21%</span></h3>
-                                            <p>Lorem ipsum dolor sit amet, conset etur sadipscing elitr, sed.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-chart">
-                                            <div id="click_chart"></div>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-features d-flex align-items-center gap-3">
+                                <div class="icon-img-1 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        width="512" height="512" x="0" y="0" viewBox="0 0 438.891 438.891"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve">
+                                        <g>
+                                            <path
+                                                d="M347.968 57.503h-39.706V39.74c0-5.747-6.269-8.359-12.016-8.359h-30.824C258.108 10.483 239.822.034 218.924.034c-20.668-.777-39.467 11.896-46.498 31.347h-30.302c-5.747 0-11.494 2.612-11.494 8.359v17.763H90.923c-23.53.251-42.78 18.813-43.886 42.318v299.363c0 22.988 20.898 39.706 43.886 39.706h257.045c22.988 0 43.886-16.718 43.886-39.706V99.822c-1.106-23.506-20.356-42.068-43.886-42.319zm-196.441-5.224h28.735a11.496 11.496 0 0 0 9.927-9.404c3.094-13.474 14.915-23.146 28.735-23.51 13.692.415 25.335 10.117 28.212 23.51a11.494 11.494 0 0 0 10.449 9.404h29.78v41.796H151.527V52.279zm219.429 346.906c0 11.494-11.494 18.808-22.988 18.808H90.923c-11.494 0-22.988-7.314-22.988-18.808V99.822c1.066-11.964 10.978-21.201 22.988-21.42h39.706v26.645c.552 5.854 5.622 10.233 11.494 9.927h154.122a11.493 11.493 0 0 0 12.016-9.927V78.401h39.706c12.009.22 21.922 9.456 22.988 21.42v299.364z"
+                                                fill="#000000" data-original="#000000"></path>
+                                            <path
+                                                d="M179.217 233.569c-3.919-4.131-10.425-4.364-14.629-.522l-33.437 31.869-14.106-14.629c-3.919-4.131-10.425-4.363-14.629-.522a10.971 10.971 0 0 0 0 15.151l21.42 21.943a9.403 9.403 0 0 0 7.314 3.135 10.446 10.446 0 0 0 7.314-3.135l40.751-38.661c4.04-3.706 4.31-9.986.603-14.025a8.78 8.78 0 0 0-.601-.604zM329.16 256.034H208.997c-5.771 0-10.449 4.678-10.449 10.449s4.678 10.449 10.449 10.449H329.16c5.771 0 10.449-4.678 10.449-10.449s-4.678-10.449-10.449-10.449zM179.217 149.977c-3.919-4.131-10.425-4.364-14.629-.522l-33.437 31.869-14.106-14.629c-3.919-4.131-10.425-4.364-14.629-.522a10.971 10.971 0 0 0 0 15.151l21.42 21.943a9.403 9.403 0 0 0 7.314 3.135 10.446 10.446 0 0 0 7.314-3.135l40.751-38.661c4.04-3.706 4.31-9.986.603-14.025a8.78 8.78 0 0 0-.601-.604zM329.16 172.442H208.997c-5.771 0-10.449 4.678-10.449 10.449s4.678 10.449 10.449 10.449H329.16c5.771 0 10.449-4.678 10.449-10.449s-4.678-10.449-10.449-10.449zM179.217 317.16c-3.919-4.131-10.425-4.363-14.629-.522l-33.437 31.869-14.106-14.629c-3.919-4.131-10.425-4.363-14.629-.522a10.971 10.971 0 0 0 0 15.151l21.42 21.943a9.403 9.403 0 0 0 7.314 3.135 10.446 10.446 0 0 0 7.314-3.135l40.751-38.661c4.04-3.706 4.31-9.986.603-14.025a9.253 9.253 0 0 0-.601-.604zM329.16 339.626H208.997c-5.771 0-10.449 4.678-10.449 10.449s4.678 10.449 10.449 10.449H329.16c5.771 0 10.449-4.678 10.449-10.449s-4.678-10.449-10.449-10.449z"
+                                                fill="#000000" data-original="#000000"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="single-click-content">
+                                    <span class="features-title">اجمالى الطلبات</span>
+                                    <h3>380</h3>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-features color-style-1765fd">
-                                <div class="row align-items-center">
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-content">
-                                            <span class="features-title">VIEW THROUGH</span>
-                                            <h3>5,952 <span>+0.21%</span></h3>
-                                            <p>Lorem ipsum dolor sit amet, conset etur sadipscing elitr, sed.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-chart">
-                                            <div id="view_chart"></div>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-features  d-flex align-items-center gap-3">
+                                <div class="icon-img-1 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve">
+                                        <g>
+                                            <path
+                                                d="M458.406 380.681c-8.863-6.593-21.391-4.752-27.984 4.109A217.989 217.989 0 0 1 418.889 399c-7.315 8.275-6.538 20.915 1.737 28.231a19.923 19.923 0 0 0 13.239 5.016c5.532 0 11.04-2.283 14.992-6.754a257.803 257.803 0 0 0 13.658-16.829c6.593-8.861 4.754-21.391-4.109-27.983zM491.854 286.886c-10.786-2.349-21.447 4.496-23.796 15.288a215.372 215.372 0 0 1-4.646 17.681c-3.261 10.554 2.651 21.752 13.204 25.013 1.967.607 3.955.896 5.911.896 8.54 0 16.448-5.514 19.102-14.102a255.373 255.373 0 0 0 5.514-20.98c2.349-10.792-4.496-21.446-15.289-23.796zM362.139 444.734a216.715 216.715 0 0 1-16.34 8.233c-10.067 4.546-14.542 16.392-9.996 26.459 3.34 7.396 10.619 11.773 18.239 11.773 2.752 0 5.549-.571 8.22-1.777a256.456 256.456 0 0 0 19.377-9.764c9.645-5.384 13.098-17.568 7.712-27.212-5.383-9.643-17.567-13.096-27.212-7.712zM236 96v151.716l-73.339 73.338c-7.81 7.811-7.81 20.474 0 28.284a19.935 19.935 0 0 0 14.143 5.858 19.943 19.943 0 0 0 14.143-5.858l79.196-79.196A20.001 20.001 0 0 0 276 256V96c0-11.046-8.954-20-20-20s-20 8.954-20 20z"
+                                                fill="#000000" data-original="#000000"></path>
+                                            <path
+                                                d="M492 43c-11.046 0-20 8.954-20 20v55.536C425.448 45.528 344.151 0 256 0 187.62 0 123.333 26.629 74.98 74.98 26.629 123.333 0 187.62 0 256s26.629 132.667 74.98 181.02C123.333 485.371 187.62 512 256 512c.169 0 .332-.021.5-.025.168.004.331.025.5.025 7.208 0 14.487-.304 21.637-.902 11.007-.922 19.183-10.592 18.262-21.599-.923-11.007-10.58-19.187-21.6-18.261-6.044.505-12.2.762-18.299.762-.169 0-.332.021-.5.025-.168-.004-.331-.025-.5-.025-119.103 0-216-96.897-216-216S136.897 40 256 40c76.758 0 147.357 40.913 185.936 106h-54.993c-11.046 0-20 8.954-20 20s8.954 20 20 20H448a63.612 63.612 0 0 0 33.277-9.353 19.968 19.968 0 0 0 1.796-1.152C500.479 164.044 512 144.347 512 122V63c0-11.046-8.954-20-20-20z"
+                                                fill="#000000" data-original="#000000"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="single-click-content">
+                                    <span class="features-title">الطلبات قيد الانتظار</span>
+                                    <h3>165</h3>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-features color-style-5c31d6">
-                                <div class="row align-items-center">
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-content">
-                                            <span class="features-title">TOTAL CONVERSIONS</span>
-                                            <h3>10,302 <span>+0.21%</span></h3>
-                                            <p>Lorem ipsum dolor sit amet, conset etur sadipscing elitr, sed.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="single-click-chart">
-                                            <div id="conversions_chart"></div>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-features d-flex align-items-center gap-3">
+                                <div class="icon-img-1 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        width="512" height="512" x="0" y="0" viewBox="0 0 511.999 511"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve">
+                                        <g>
+                                            <path
+                                                d="M506.93 238.938c-6.207-5.485-15.688-4.895-21.172 1.312l-.242.273v-10.511c0-61.305-23.875-118.942-67.227-162.293C374.941 24.37 317.305.5 256 .5c-37.031 0-73.828 9.031-106.418 26.113-31.531 16.528-59.207 40.57-80.035 69.535-4.836 6.723-3.305 16.098 3.422 20.934 6.726 4.84 16.101 3.309 20.937-3.418 18.117-25.195 42.188-46.11 69.606-60.48C191.82 38.344 223.8 30.5 256 30.5c110.012 0 199.516 89.504 199.516 199.516v10.511l-.246-.273c-5.485-6.211-14.965-6.797-21.172-1.313-6.211 5.485-6.797 14.965-1.313 21.172l26.485 29.985a15 15 0 0 0 11.242 5.066 15 15 0 0 0 11.242-5.066l26.484-29.985c5.489-6.21 4.903-15.691-1.308-21.175zM439.031 342.89c-6.726-4.835-16.097-3.308-20.937 3.419-18.117 25.191-42.188 46.105-69.606 60.48-28.308 14.84-60.293 22.684-92.488 22.684-110.012 0-199.516-89.504-199.516-199.516v-10.512l.246.278c5.485 6.207 14.965 6.797 21.172 1.308 6.211-5.484 6.797-14.965 1.313-21.172L52.73 169.875a14.996 14.996 0 0 0-22.484 0L3.758 199.859c-5.485 6.211-4.899 15.688 1.312 21.172a14.925 14.925 0 0 0 9.926 3.762c4.149 0 8.281-1.715 11.246-5.07l.242-.278v10.512c0 61.309 23.875 118.941 67.227 162.293 43.348 43.352 100.984 67.223 162.289 67.223 37.027 0 73.828-9.032 106.418-26.114 31.527-16.527 59.203-40.574 80.031-69.535 4.836-6.726 3.309-16.097-3.418-20.933zm0 0"
+                                                fill="#000000" data-original="#000000"></path>
+                                            <path
+                                                d="M108.047 268.39a14.973 14.973 0 0 0 1.5 11.38l30 51.964a14.998 14.998 0 0 0 20.488 5.488l22.059-12.734A120.855 120.855 0 0 0 211 341.215v25.433c0 8.282 6.715 15 15 15h60c8.281 0 15-6.718 15-15v-25.433a120.855 120.855 0 0 0 28.906-16.727l22.059 12.735a15.006 15.006 0 0 0 11.379 1.5 15.002 15.002 0 0 0 9.11-6.989l30-51.964a15.008 15.008 0 0 0 1.5-11.38 15.016 15.016 0 0 0-6.99-9.109L374.86 246.52c.758-5.477 1.141-11.02 1.141-16.563 0-5.61-.39-11.207-1.168-16.746l22.133-12.777a15.002 15.002 0 0 0 5.488-20.493l-30-51.96c-4.14-7.172-13.316-9.63-20.488-5.489l-22.203 12.82A120.92 120.92 0 0 0 301 118.7V93.066c0-8.28-6.715-15-15-15h-60c-8.285 0-15 6.72-15 15V118.7a120.896 120.896 0 0 0-28.758 16.614l-22.207-12.82c-7.172-4.145-16.347-1.684-20.488 5.487l-30 51.961a15.002 15.002 0 0 0 5.488 20.492l22.133 12.778A120.517 120.517 0 0 0 136 229.957c0 5.543.383 11.082 1.14 16.563l-22.1 12.761a14.994 14.994 0 0 0-6.993 9.11zM256 184.958c24.852 0 45 20.148 45 45s-20.148 45-45 45c-24.855 0-45-20.148-45-45s20.148-45 45-45zm0 0"
+                                                fill="#000000" data-original="#000000"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="single-click-content">
+                                    <span class="features-title">الطلبات قيد التنفيذ</span>
+                                    <h3>75</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-features d-flex align-items-center gap-3">
+                                <div class="icon-img-1 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                        width="512" height="512" x="0" y="0" viewBox="0 0 64 64"
+                                        style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                        fill-rule="evenodd">
+                                        <g>
+                                            <path
+                                                d="M14 10.542H5a1 1 0 0 0-1 1v47.5a1 1 0 0 0 1 1h43a1 1 0 0 0 1-1v-7.195c6.227-.964 11-6.352 11-12.847s-4.773-11.883-11-12.847V11.542a1 1 0 0 0-1-1h-8V7.87a1 1 0 0 0-1-1h-1.5V5a1 1 0 0 0-1-1h-19a1 1 0 0 0-1 1v1.87H15a1 1 0 0 0-1 1zm0 2H6v45.5h41V52c-7.175 0-13-5.825-13-13s5.825-13 13-13V12.542h-7v1.5a1 1 0 0 1-1 1H15a1 1 0 0 1-1-1zm-.5 35a3.501 3.501 0 0 0-3.5 3.5c0 1.931 1.568 3.5 3.5 3.5s3.5-1.569 3.5-3.5c0-1.932-1.568-3.5-3.5-3.5zm0 2a1.5 1.5 0 1 1-.001 3.001 1.5 1.5 0 0 1 .001-3.001zm8 2.5h8a1 1 0 0 0 0-2h-8a1 1 0 0 0 0 2zM47 28c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-8.059 12.829 6.448 4.349a1 1 0 0 0 1.376-.252l7.552-10.698a1 1 0 0 0-1.634-1.154l-6.987 9.899-5.637-3.802a1 1 0 1 0-1.118 1.658zM13.5 33.542a3.501 3.501 0 0 0-3.5 3.5c0 1.931 1.568 3.5 3.5 3.5s3.5-1.569 3.5-3.5c0-1.932-1.568-3.5-3.5-3.5zm0 2a1.5 1.5 0 1 1-.001 3.001 1.5 1.5 0 0 1 .001-3.001zm8 2.5h8a1 1 0 0 0 0-2h-8a1 1 0 0 0 0 2zm-8-19.5a3.501 3.501 0 0 0-3.5 3.5c0 1.931 1.568 3.5 3.5 3.5s3.5-1.569 3.5-3.5c0-1.932-1.568-3.5-3.5-3.5zm0 2a1.5 1.5 0 1 1-.001 3.001 1.5 1.5 0 0 1 .001-3.001zm8 2.5h18a1 1 0 0 0 0-2h-18a1 1 0 0 0 0 2zm14-15.172a1 1 0 0 0 1 1H38v4.172H16V8.87h1.5a1 1 0 0 0 1-1V6h17z"
+                                                fill="#000000" data-original="#000000"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="single-click-content">
+                                    <span class="features-title">الطلبات المنفذة</span>
+                                    <h3>55</h3>
                                 </div>
                             </div>
                         </div>
@@ -678,7 +714,6 @@
                 </div>
             </div>
             <!-- End Features Area -->
-
             <!-- Start Overview Area -->
             <div class="overview-area">
                 <div class="container-fluid">
@@ -687,100 +722,20 @@
                             <div class="overview-content-wrap card-box-style">
                                 <div class="overview-content d-flex justify-content-between align-items-center">
                                     <div class="overview-title">
-                                        <h3>Audience Overview</h3>
-                                        <span>1 July, 2021 - 14 July, 2021</span>
+                                        <h3>احصائيات الفروع</h3>
                                     </div>
-
-                                    <ul class="total-overview">
-                                        <li>
-                                            <button class="today">Today</button>
-                                        </li>
-                                        <li>
-                                            <button>7d</button>
-                                        </li>
-                                        <li>
-                                            <button class="active">2w</button>
-                                        </li>
-                                        <li>
-                                            <button>1m</button>
-                                        </li>
-                                        <li>
-                                            <button>3m</button>
-                                        </li>
-                                        <li>
-                                            <button>1y</button>
-                                        </li>
-                                    </ul>
                                 </div>
-
                                 <div class="audience-content-wrap">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div
-                                                class="single-audience d-flex justify-content-between align-items-center">
-                                                <div class="audience-content">
-                                                    <h5>New Users</h5>
-                                                    <h4>19,202 <span>+55%</span></h4>
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/images/icon/white-profile-2user.svg"
-                                                        alt="white-profile-2user">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div
-                                                class="single-audience d-flex justify-content-between align-items-center">
-                                                <div class="audience-content">
-                                                    <h5>Page Views</h5>
-                                                    <h4>21,202 <span>+32%</span></h4>
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/images/icon/eye.svg" alt="eye">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div
-                                                class="single-audience d-flex justify-content-between align-items-center">
-                                                <div class="audience-content">
-                                                    <h5>Page Sessions</h5>
-                                                    <h4>15,251 <span>+23%</span></h4>
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/images/icon/timer.svg" alt="timer">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div
-                                                class="single-audience d-flex justify-content-between align-items-center">
-                                                <div class="audience-content color-style-fe5957">
-                                                    <h5>Bounce Rate</h5>
-                                                    <h4>21,202 <span>-15%</span></h4>
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/images/icon/mask.svg" alt="mask">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="audience-chart">
-                                        <div id="overview_chart"></div>
+                                        <div id="deps_chart"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-4">
                             <div class="traffic-content card-box-style">
                                 <div class="main-title d-flex justify-content-between align-items-center">
-                                    <h3>Traffic Channel</h3>
-
+                                    <h3>الطلبات</h3>
                                     <select class="form-select form-control" aria-label="Default select example">
                                         <option selected>15 days</option>
                                         <option value="1">16 days</option>
@@ -788,37 +743,32 @@
                                         <option value="3">18 days</option>
                                     </select>
                                 </div>
-
                                 <div class="traffic-chart text-center">
                                     <div id="traffic_chart"></div>
                                 </div>
-
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-3 col-md-3 col-sm-3">
                                         <div class="single-traffic">
-                                            <span class="title">Organic Search</span>
-                                            <h4>19,202 <span>+32.50%</span></h4>
+                                            <span class="title"> الطلبات</span>
+                                            <h4>380</h4>
                                         </div>
                                     </div>
-
                                     <div class="col-xxl-3 col-md-3 col-sm-3">
                                         <div class="single-traffic border-style-5c31d6">
-                                            <span class="title">Social Media</span>
-                                            <h4>15,202 <span>+32.50%</span></h4>
+                                            <span class="title"> منتظر </span>
+                                            <h4>165</h4>
                                         </div>
                                     </div>
-
                                     <div class="col-xxl-3 col-md-3 col-sm-3">
                                         <div class="single-traffic border-style-4fcb8d">
-                                            <span class="title">Email</span>
-                                            <h4>502 <span>+2%</span></h4>
+                                            <span class="title">في تَقَدم</span>
+                                            <h4>45</h4>
                                         </div>
                                     </div>
-
                                     <div class="col-xxl-3 col-md-3 col-sm-3">
                                         <div class="single-traffic border-style-fec107">
-                                            <span class="title">Referrals</span>
-                                            <h4>1,202 <span>+32.50%</span></h4>
+                                            <span class="title">مغلق</span>
+                                            <h4>55</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -828,441 +778,214 @@
                 </div>
             </div>
             <!-- End Overview Area -->
-
-            <!-- Start Device Website Area -->
-            <div class="device-website-area">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-xxl-7">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-6">
-                                    <div class="device-content card-box-style">
-                                        <div class="main-title d-flex justify-content-between align-items-center">
-                                            <h3>Device Sessions</h3>
-
-                                            <select class="form-select form-control"
-                                                aria-label="Default select example">
-                                                <option selected>30 days</option>
-                                                <option value="1">15 days</option>
-                                                <option value="2">10 days</option>
-                                                <option value="3">5 days</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="device-chart text-center">
-                                            <div id="device_chart"></div>
-                                        </div>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="single-device">
-                                                    <span class="title">Mobile</span>
-                                                    <h4>32,590 <span>+2%</span></h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="single-device border-style-4fcb8d">
-                                                    <span class="title">Desktop</span>
-                                                    <h4>19,202 <span>+32.50%</span></h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="single-device border-style-fec107">
-                                                    <span class="title">Tablet</span>
-                                                    <h4>1,202 <span>+32.50%</span></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="device-content website card-box-style">
-                                        <div class="main-title d-flex justify-content-between align-items-center">
-                                            <h3>Website Performance</h3>
-
-                                            <select class="form-select form-control"
-                                                aria-label="Default select example">
-                                                <option selected>30 days</option>
-                                                <option value="1">15 days</option>
-                                                <option value="2">10 days</option>
-                                                <option value="3">5 days</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-12 col-sm-6">
-                                                <div
-                                                    class="single-website-performance d-flex justify-content-between align-items-center">
-                                                    <div class="website-performance-content">
-                                                        <h5>Bounce Rate (avg)</h5>
-                                                        <h4>24.67% <span>+04.18%</span></h4>
-                                                    </div>
-                                                    <div class="website-chart">
-                                                        <div id="bounce_rate"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-sm-6">
-                                                <div
-                                                    class="single-website-performance d-flex justify-content-between align-items-center">
-                                                    <div class="website-performance-content color-style-fe5957">
-                                                        <h5>Page Views (avg)</h5>
-                                                        <h4>7.32% <span>-0.21%</span></h4>
-                                                    </div>
-                                                    <div class="website-chart">
-                                                        <div id="page_views"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-sm-6">
-                                                <div
-                                                    class="single-website-performance d-flex justify-content-between align-items-center">
-                                                    <div class="website-performance-content">
-                                                        <h5>Time On Site (avg)</h5>
-                                                        <h4>1min 30s <span>+2.50%</span></h4>
-                                                    </div>
-                                                    <div class="website-chart">
-                                                        <div id="time_on_site"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-5">
-                            <div class="website-up-down card-box-style">
-                                <div class="main-title d-flex justify-content-between align-items-center">
-                                    <h3>Website Performance</h3>
-
-                                    <select class="form-select form-control" aria-label="Default select example">
-                                        <option selected>30 days</option>
-                                        <option value="1">15 days</option>
-                                        <option value="2">10 days</option>
-                                        <option value="3">5 days</option>
-                                    </select>
-                                </div>
-
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <div
-                                            class="single-up-and-down d-flex justify-content-between align-items-center">
-                                            <div class="up-and-down-content">
-                                                <h5>Monthly</h5>
-                                                <h4><span>+32%</span></h4>
-                                            </div>
-                                            <div class="total">
-                                                <h4 class="mb-0">7.32%</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <div
-                                            class="single-up-and-down d-flex justify-content-between align-items-center">
-                                            <div class="up-and-down-content color-style-fe5957">
-                                                <h5>Weekly</h5>
-                                                <h4><span>-01.17%</span></h4>
-                                            </div>
-                                            <div class="total">
-                                                <h4 class="mb-0">7.32%</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <div
-                                            class="single-up-and-down d-flex justify-content-between align-items-center mb-0">
-                                            <div class="up-and-down-content">
-                                                <h5>Today</h5>
-                                                <h4><span>+03.93%</span></h4>
-                                            </div>
-                                            <div class="total">
-                                                <h4 class="mb-0">7.32%</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="sessions-chart">
-                                    <div id="sessions_chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Device Website Area -->
             <!-- Start Total Visits Area -->
             <div class="total-visits-browse-area">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-xxl-6">
-                            <div class="total-visits-content card-box-style">
-                                <div class="main-title d-flex justify-content-between align-items-center">
-                                    <h3>Total Visits</h3>
-                                    <select class="form-select form-control" aria-label="Default select example">
-                                        <option selected>30 days</option>
-                                        <option value="1">15 days</option>
-                                        <option value="2">10 days</option>
-                                        <option value="3">7 days</option>
-                                    </select>
-                                </div>
-                                <table class="table align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">LINK</th>
-                                            <th scope="col">PAGE TITLE</th>
-                                            <th scope="col">PERCENTAGE (%)</th>
-                                            <th scope="col" class="present">VALUE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/icon/link.svg" alt="link">
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>Homepage</span>
-                                            </td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        aria-label="Example with label" style="width: 65.35%;"
-                                                        aria-valuenow="65.35" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="present">
-                                                <span>65.35%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/icon/link.svg" alt="link">
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>Our Services</span>
-                                            </td>
-                                            <td>
-                                                <div class="progress services">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        aria-label="Example with label" style="width: 40.25%;"
-                                                        aria-valuenow="40.25" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="present">
-                                                <span>40.25%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/icon/link.svg" alt="link">
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>List of Products</span>
-                                            </td>
-                                            <td>
-                                                <div class="progress products">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        aria-label="Example with label" style="width: 25.15%;"
-                                                        aria-valuenow="25.15" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="present">
-                                                <span>25.15%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/icon/link.svg" alt="link">
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>Blog</span>
-                                            </td>
-                                            <td>
-                                                <div class="progress blog">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        aria-label="Example with label" style="width: 80.95%;"
-                                                        aria-valuenow="80.95" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="present">
-                                                <span>80.95%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/icon/link.svg" alt="link">
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>Contact Us</span>
-                                            </td>
-                                            <td>
-                                                <div class="progress contact">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        aria-label="Example with label" style="width: 42.35%;"
-                                                        aria-valuenow="42.35" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="present">
-                                                <span>42.35%</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-xxl-6">
                             <div class="map-area card-box-style d-flex align-items-center justify-content-center"
                                 style="height: 450px;">
-                                <div id="map"></div>
+                                <div class="w-100 h-100" id="mapLocation"></div>
                             </div>
                         </div>
-                        <div class="col-xxl-6">
-                            <div class="total-browse-content card-box-style">
-                                <div class="main-title d-flex justify-content-between align-items-center">
-                                    <h3>المنتجات الاكثر مبيعا</h3>
-                                    <select class="form-select form-control" aria-label="Default select example">
-                                        <option selected>30 days</option>
-                                        <option value="1">15 days</option>
-                                        <option value="2">10 days</option>
-                                        <option value="3">7 days</option>
-                                    </select>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="total-browse-content card-box-style">
+                                    <div class="main-title d-flex justify-content-between align-items-center">
+                                        <h3>المنتجات الاكثر صيانة</h3>
+                                        <select class="form-select form-control" aria-label="Default select example">
+                                            <option selected>30 days</option>
+                                            <option value="1">15 days</option>
+                                            <option value="2">10 days</option>
+                                            <option value="3">7 days</option>
+                                        </select>
+                                    </div>
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">المنتج</th>
+                                                <th scope="col">عدد مرات الصيانة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="#">
+                                                        <img src="assets/images/products/2.png" class="product--img"
+                                                            alt="iphone">
+                                                        <span class="ms-2">ايفون 13 برو </span>
+                                                    </a>
+                                                </th>
+                                                <td class="text-center">
+                                                    <span>62</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <img src="assets/images/products/apple-watch.png"
+                                                            class="product--img" alt="watch">
+                                                        <span class="ms-2"> ساعة ابل m12 </span>
+                                                    </a>
+                                                </th>
+                                                <td class="text-center">
+                                                    <span>152</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <img class="product--img"
+                                                            src="assets/images/products/play-station.png"
+                                                            alt="playstation">
+                                                        <span class="ms-2">5 بلايستيشن</span>
+                                                    </a>
+                                                </th>
+                                                <td class="text-center">
+                                                    <span>173</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <img src="assets/images/products/headphones.png"
+                                                            class="product--img" alt="headphone">
+                                                        <span class="ms-2">هيد فون</span>
+                                                    </a>
+                                                </th>
+                                                <td class="text-center">
+                                                    <span>95</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <table class="table align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">المنتج</th>
-                                            <th scope="col">SESSIONS</th>
-                                            <th scope="col">BOUNCE RATE</th>
-                                            <th scope="col">CONVERSION RATE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="#">
-                                                    <img src="assets/images/products/2.png" class="product--img"
-                                                        alt="iphone">
-                                                    <span class="ms-2">ايفون 13 برو </span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>13,410</span>
-                                            </td>
-                                            <td>
-                                                <span>65.35%</span>
-                                            </td>
-                                            <td>
-                                                <span>12.32%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/products/apple-watch.png"
-                                                        class="product--img" alt="watch">
-                                                    <span class="ms-2"> ساعة ابل m12 </span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>14,530</span>
-                                            </td>
-                                            <td>
-                                                <span>40.25%</span>
-                                            </td>
-                                            <td>
-                                                <span>19.59%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img class="product--img"
-                                                        src="assets/images/products/play-station.png" alt="playstation">
-                                                    <span class="ms-2">5 بلايستيشن</span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>2,515</span>
-                                            </td>
-                                            <td>
-                                                <span>25.15%</span>
-                                            </td>
-                                            <td>
-                                                <span>11.42%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/products/headphones.png" alt="headphone">
-                                                    <span class="ms-2"></span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>1095</span>
-                                            </td>
-                                            <td>
-                                                <span>80.95%</span>
-                                            </td>
-                                            <td>
-                                                <span>13.31%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/apps/opera.svg" alt="opera">
-                                                    <span class="ms-2">Opera</span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>235</span>
-                                            </td>
-                                            <td>
-                                                <span>42.35%</span>
-                                            </td>
-                                            <td>
-                                                <span>2.35%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <a href="index.html">
-                                                    <img src="assets/images/apps/uc-browser.svg" alt="uc-browser">
-                                                    <span class="ms-2">UC Browser</span>
-                                                </a>
-                                            </th>
-                                            <td>
-                                                <span>132</span>
-                                            </td>
-                                            <td>
-                                                <span>42.35%</span>
-                                            </td>
-                                            <td>
-                                                <span>12.21%</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="total-browse-content card-box-style">
+                                    <div class="main-title d-flex justify-content-between align-items-center">
+                                        <h3>الفنيين</h3>
+                                        <select class="form-select form-control" aria-label="Default select example">
+                                            <option selected>30 days</option>
+                                            <option value="1">15 days</option>
+                                            <option value="2">10 days</option>
+                                            <option value="3">7 days</option>
+                                        </select>
+                                    </div>
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">الفنى</th>
+                                                <th scope="col">الاجهزة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="#">
+                                                        <span class="ms-2">ريان على</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>22</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2"> خالد عوض </span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>52</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2">نواف العقيدى</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>95</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2">سالم الدوسرى</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>45</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="total-browse-content card-box-style">
+                                    <div class="main-title d-flex justify-content-between align-items-center">
+                                        <h3>المستخدمين</h3>
+                                        <select class="form-select form-control" aria-label="Default select example">
+                                            <option selected>30 days</option>
+                                            <option value="1">15 days</option>
+                                            <option value="2">10 days</option>
+                                            <option value="3">7 days</option>
+                                        </select>
+                                    </div>
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">المستخدم</th>
+                                                <th scope="col">الاجهزة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="#">
+                                                        <span class="ms-2">ريان على</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>22</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2"> خالد عوض </span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>52</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2">نواف العقيدى</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>95</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="index.html">
+                                                        <span class="ms-2">سالم الدوسرى</span>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <span>45</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1296,38 +1019,93 @@
         <script src="assets/js/apexcharts/apexcharts.min.js"></script>
         <script src="assets/js/apexcharts/website-analytics.js"></script>
         <script src="assets/js/ajaxchimp.min.js"></script>
-        <!-- map js -->
-        <script src="assets/js/map/jsvectormap.min.js"></script>
-        <script src="assets/js/map/world.js"></script>
-        <script src="assets/js/map/world-merc.js"></script>
-        <!-- <script src="assets/js/map/createMarkers.js"></script>
-        <script src="assets/js/map/getMarkerPosition.js"></script> -->
         <!-- cystom js -->
         <script src="assets/js/custom.js"></script>
         <script>
-            var markers = [
-                {
-                    name: 'Palestine',
-                    coords: [31.5, 34.8],
-                },
-                {
-                    name: 'Russia',
-                    coords: [61, 105],
-                },
-                {
-                    name: 'Geenland',
-                    coords: [72, -42],
-                },
-                {
-                    name: 'Canada',
-                    coords: [56, -106],
-                },
+            var map = L.map('mapLocation').setView([24.0, 45.0], 6);
+            // Add a tile layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            // Define the places and their coordinates
+            var places = [
+                { name: "Riyadh", coords: [24.7136, 46.6753] },
+                { name: "Jeddah", coords: [21.4858, 39.1925] },
+                { name: "Mecca", coords: [21.3891, 39.8579] },
+                { name: "Medina", coords: [24.5247, 39.5692] },
+                { name: "Dammam", coords: [26.3927, 49.9777] },
+                { name: "Khobar", coords: [26.2799, 50.2085] },
+                { name: "Abha", coords: [18.2319, 42.5043] }
             ];
-            var map = new jsVectorMap({
-                map: 'world',
-                selector: '#map',
-                markers: markers,
+            // Add markers for each place
+            places.forEach(place => {
+                L.marker(place.coords).addTo(map)
+                    .bindPopup(place.name)
+                    .openPopup();
             });
+        </script>
+        <script>
+            var options = {
+                series: [{
+                    name: 'منتظر',
+                    data: [35, 40, 20, 50, 10, 30, 40]
+                }, {
+                    name: "في تَقَدم",
+                    data: [15, 35, 25, 10, 40, 45, 5]
+                }, {
+                    name: 'مغلق',
+                    data: [60, 35, 20, 65, 15, 45, 50]
+                }],
+                colors: ['#1765fd', '#14a77b', '#d2c03a'],
+                chart: {
+                    type: 'bar',
+                    height: 350,
+                    stacked: true,
+                    toolbar: {
+                        show: true
+                    },
+                    zoom: {
+                        enabled: true
+                    }
+                },
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        legend: {
+                            position: 'bottom',
+                            offsetX: -10,
+                            offsetY: 0
+                        }
+                    }
+                }],
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        borderRadius: 10,
+                        dataLabels: {
+                            total: {
+                                enabled: true,
+                                style: {
+                                    fontSize: '13px',
+                                    fontWeight: 900
+                                }
+                            }
+                        }
+                    },
+                },
+                xaxis: {
+                    categories: ['الفرع الاول', 'الفرع الثانى', 'الفرع الثالث', 'الفرع الرابع', 'الفرع الخامس', 'الفرع السادس ', 'الفرع السابع'],
+                },
+                legend: {
+                    position: 'right',
+                    offsetY: 0
+                },
+                fill: {
+                    opacity: 1
+                }
+            };
+            var chart = new ApexCharts(document.querySelector("#deps_chart"), options);
+            chart.render();
         </script>
 </body>
 
