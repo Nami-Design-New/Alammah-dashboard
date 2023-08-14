@@ -29,25 +29,15 @@
   font-size: 20px;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--bs-gray-900);
-}
-
-::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, #1765fd, #4fcb8d);
-  height: 300px;
-}
-
 .email-content-area .content-right .email-list-wrapper .email-list .list-wrapper .email-list-item .email-list-detail .date {
   color: #bfbfbf;
 }
 
 .product--img {
   max-height: 40px;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .apexcharts-legend-text {

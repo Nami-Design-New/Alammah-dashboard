@@ -262,6 +262,7 @@ Cart Box Style Style
   border-radius: 30px;
   padding: 30px;
   margin-bottom: 24px;
+  height: 490px;
 }
 .card-box-style.rounded {
   background-color: #ffffff;
