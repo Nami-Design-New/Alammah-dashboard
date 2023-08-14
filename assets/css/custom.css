@@ -44,4 +44,8 @@
 
 .email-content-area .content-right .email-list-wrapper .email-list .list-wrapper .email-list-item .email-list-detail .date {
   color: #bfbfbf;
+}
+
+.product--img {
+  max-height: 40px;
 }/*# sourceMappingURL=custom.css.map */
