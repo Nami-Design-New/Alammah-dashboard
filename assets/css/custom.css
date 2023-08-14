@@ -79,4 +79,8 @@ tr {
 
 .header-area.is-sticky {
   z-index: 999999999999;
+}
+
+.leaflet-container {
+  border-radius: 15px;
 }/*# sourceMappingURL=custom.css.map */

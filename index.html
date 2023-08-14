@@ -23,12 +23,7 @@
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin="" />
-    <script defer src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="assets/css/leaflet.css">
 </head>
 
 <body class="body-bg-f8faff">
@@ -792,7 +787,7 @@
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="total-browse-content card-box-style">
                                     <div class="main-title d-flex justify-content-between align-items-center">
-                                        <h3>المنتجات الاكثر صيانة</h3>
+                                        <h3>الاصناف المضافه</h3>
                                         <select class="form-select form-control" aria-label="Default select example">
                                             <option selected>30 days</option>
                                             <option value="1">15 days</option>
@@ -804,16 +799,16 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">المنتج</th>
-                                                <th scope="col">عدد مرات الصيانة</th>
+                                                <th class="text-center" scope="col">العدد</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">
                                                     <a href="#">
-                                                        <img src="assets/images/products/2.png" class="product--img"
+                                                        <img src="assets/images/p1.png" class="product--img"
                                                             alt="iphone">
-                                                        <span class="ms-2">ايفون 13 برو </span>
+                                                        <span class="ms-2"> ماوس </span>
                                                     </a>
                                                 </th>
                                                 <td class="text-center">
@@ -823,9 +818,9 @@
                                             <tr>
                                                 <th scope="row">
                                                     <a href="index.html">
-                                                        <img src="assets/images/products/apple-watch.png"
-                                                            class="product--img" alt="watch">
-                                                        <span class="ms-2"> ساعة ابل m12 </span>
+                                                        <img src="assets/images/p2.png" class="product--img"
+                                                            alt="watch">
+                                                        <span class="ms-2"> كيبورد </span>
                                                     </a>
                                                 </th>
                                                 <td class="text-center">
@@ -835,10 +830,9 @@
                                             <tr>
                                                 <th scope="row">
                                                     <a href="index.html">
-                                                        <img class="product--img"
-                                                            src="assets/images/products/play-station.png"
+                                                        <img class="product--img" src="assets/images/p3.png"
                                                             alt="playstation">
-                                                        <span class="ms-2">5 بلايستيشن</span>
+                                                        <span class="ms-2">شاشة </span>
                                                     </a>
                                                 </th>
                                                 <td class="text-center">
@@ -848,9 +842,9 @@
                                             <tr>
                                                 <th scope="row">
                                                     <a href="index.html">
-                                                        <img src="assets/images/products/headphones.png"
-                                                            class="product--img" alt="headphone">
-                                                        <span class="ms-2">هيد فون</span>
+                                                        <img src="assets/images/p4.png" class="product--img"
+                                                            alt="headphone">
+                                                        <span class="ms-2">كابل باور </span>
                                                     </a>
                                                 </th>
                                                 <td class="text-center">
@@ -876,7 +870,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">الفنى</th>
-                                                <th scope="col">الاجهزة</th>
+                                                <th class="text-center" scope="col">الاجهزة</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -886,7 +880,7 @@
                                                         <span class="ms-2">ريان على</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>22</span>
                                                 </td>
                                             </tr>
@@ -896,7 +890,7 @@
                                                         <span class="ms-2"> خالد عوض </span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>52</span>
                                                 </td>
                                             </tr>
@@ -906,7 +900,7 @@
                                                         <span class="ms-2">نواف العقيدى</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>95</span>
                                                 </td>
                                             </tr>
@@ -916,7 +910,7 @@
                                                         <span class="ms-2">سالم الدوسرى</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>45</span>
                                                 </td>
                                             </tr>
@@ -939,7 +933,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">المستخدم</th>
-                                                <th scope="col">الاجهزة</th>
+                                                <th class="text-center" scope="col">الاجهزة</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -949,7 +943,7 @@
                                                         <span class="ms-2">ريان على</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>22</span>
                                                 </td>
                                             </tr>
@@ -959,7 +953,7 @@
                                                         <span class="ms-2"> خالد عوض </span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>52</span>
                                                 </td>
                                             </tr>
@@ -969,7 +963,7 @@
                                                         <span class="ms-2">نواف العقيدى</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>95</span>
                                                 </td>
                                             </tr>
@@ -979,7 +973,7 @@
                                                         <span class="ms-2">سالم الدوسرى</span>
                                                     </a>
                                                 </th>
-                                                <td>
+                                                <td class="text-center">
                                                     <span>45</span>
                                                 </td>
                                             </tr>
@@ -1019,30 +1013,42 @@
         <script src="assets/js/apexcharts/apexcharts.min.js"></script>
         <script src="assets/js/apexcharts/website-analytics.js"></script>
         <script src="assets/js/ajaxchimp.min.js"></script>
+        <script src="assets/js/leaflet.js"></script>
         <!-- cystom js -->
         <script src="assets/js/custom.js"></script>
         <script>
-            var map = L.map('mapLocation').setView([24.0, 45.0], 6);
-            // Add a tile layer (OpenStreetMap)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            // Define the places and their coordinates
-            var places = [
-                { name: "Riyadh", coords: [24.7136, 46.6753] },
-                { name: "Jeddah", coords: [21.4858, 39.1925] },
-                { name: "Mecca", coords: [21.3891, 39.8579] },
-                { name: "Medina", coords: [24.5247, 39.5692] },
-                { name: "Dammam", coords: [26.3927, 49.9777] },
-                { name: "Khobar", coords: [26.2799, 50.2085] },
-                { name: "Abha", coords: [18.2319, 42.5043] }
-            ];
-            // Add markers for each place
-            places.forEach(place => {
-                L.marker(place.coords).addTo(map)
-                    .bindPopup(place.name)
-                    .openPopup();
-            });
+            if (navigator.geolocation) {
+                const pos = [30.560668, 31.018417];
+                var places = [
+                    { name: "Riyadh", coords: [24.7136, 46.6753] },
+                    { name: "Jeddah", coords: [21.4858, 39.1925] },
+                    { name: "Mecca", coords: [21.3891, 39.8579] },
+                    { name: "Medina", coords: [24.5247, 39.5692] },
+                    { name: "Dammam", coords: [26.3927, 49.9777] },
+                    { name: "Khobar", coords: [26.2799, 50.2085] },
+                    { name: "Abha", coords: [18.2319, 42.5043] }
+                ];
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const { latitude, longitude } = position.coords;
+                        const coords = [latitude, longitude];
+                        const map = L.map("mapLocation").setView([24.0, 45.0], 5);
+                        L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+                            attribution:
+                                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+                        L.marker(coords).addTo(map).bindPopup("This is your Location");
+                        places.forEach(place => {
+                            L.marker(place.coords).addTo(map)
+                                .bindPopup(place.name)
+                                .openPopup();
+                        });
+                    },
+                    function () {
+                        alert("cannot get current position");
+                    }
+                );
+            }
         </script>
         <script>
             var options = {

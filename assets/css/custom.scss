@@ -59,11 +59,11 @@
   padding: 8px;
   background-color: #1765fd30;
   border-radius: 12px;
-  svg{
+  svg {
     width: 24px;
     height: 24px;
-    path{
-      fill:#fff!important ;
+    path {
+      fill: #fff !important;
     }
   }
 }
@@ -72,4 +72,7 @@ tr {
 }
 .header-area.is-sticky {
   z-index: 999999999999;
+}
+.leaflet-container {
+  border-radius: 15px;
 }
